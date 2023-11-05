@@ -1,0 +1,18 @@
+<h1 class="mt-4">Dashboard</h1>
+<div class="container">
+    <p class="lead mb-3">Welcome <%= user.name %></p>
+    <p>Current Sesson:</p>
+    <ul class="list-group">
+        <% data.forEach(function (item) { %>
+            <li class="list-group-item">
+                User ID: <%= item.userId %><br>
+                Session ID: <%= item.sessionId %><br>
+                <form method="post" action="/admin/revoke-session">
+                  <input type="hidden" name="sessionId" value="<%= item.sessionId %>">
+                  <button type="submit" class="btn btn-danger">Revoke Session</button>
+                </form>
+              </li>
+        <% }) %>
+      </ul>
+        
+  </div>
